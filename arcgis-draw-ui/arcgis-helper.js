@@ -11,7 +11,8 @@ define([
 		var gLayer = new GraphicsLayer({
 			id: "drawnFeatures",
 			styling: false,
-			className: "drawn-features"
+			className: "drawn-features",
+			dataAttributes: "geometry-type"
 		});
 
 		map.addLayer(gLayer);
@@ -22,7 +23,7 @@ define([
 		// Setup the Draw toolbar's event handler that will add graphics to the graphics layer.
 		draw.on("draw-complete", function (e) {
 			this.deactivate();
-			var graphic = new Graphic(e.geometry);
+			var graphic = new Graphic(e.geometry, null, {"geometry-type": e.geometry.type});
 			gLayer.add(graphic);
 		});
 

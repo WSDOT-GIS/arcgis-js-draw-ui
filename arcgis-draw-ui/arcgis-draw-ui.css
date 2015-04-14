@@ -1,0 +1,51 @@
+﻿.draw-ui > button > span {
+    align-self: center;
+}
+
+.draw-ui > button > .icon:before {
+    font-size: 18pt;
+    font-family: 'Segoe UI Symbol';
+    align-items: center;
+}
+
+.left-arrow > .icon:before {
+    content: '\21E6';
+}
+
+.arrow > .icon:before {
+    content: '\21D7';
+}
+
+.up-arrow > .icon:before {
+    content: '\21E7';
+}
+
+.right-arrow > .icon:before {
+    content: '\21E8';
+}
+
+.down-arrow > .icon:before {
+    content: '\21E9';
+}
+
+.circle > .icon:before {
+    content: '\20DD';
+}
+
+/*.ellipse > .icon:before {
+    content: '\2B2C';
+}*/
+
+
+.drawn-features path {
+    stroke: red;
+    stroke-opacity: 1;
+    stroke-width: 10px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.drawn-features [data-geometry-type='polygon'], .drawn-features [data-geometry-type='extent'] {
+    fill: darkgray;
+    fill-opacity: 0.6;
+}

@@ -41,6 +41,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="arcgis-draw-ui\arcgis-draw-ui.css" />
     <Content Include="arcgis-draw-ui\arcgis-helper.js" />
     <Content Include="arcgis-draw-ui\main.js" />
     <Content Include="index.css" />
