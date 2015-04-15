@@ -8,33 +8,31 @@
     align-items: center;
 }
 
-.left-arrow > .icon:before {
-    content: '\21E6';
+.draw-ui .icon {
+    background-image: url('icons.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    background-position-y: bottom;
 }
 
-.arrow > .icon:before {
-    content: '\21D7';
+.multi-point .icon {
+    background-position-x: -32px;
 }
 
-.up-arrow > .icon:before {
-    content: '\21E7';
+.line .icon {
+    background-position-x: -64px;
 }
 
-.right-arrow > .icon:before {
-    content: '\21E8';
+.polyline .icon {
+    background-position-x: -96px;
 }
 
-.down-arrow > .icon:before {
-    content: '\21E9';
+.freehand-polyline .icon {
+    background-position-x: -128px;
 }
-
-.circle > .icon:before {
-    content: '\20DD';
-}
-
-/*.ellipse > .icon:before {
-    content: '\2B2C';
-}*/
 
 
 .drawn-features path {
