@@ -81,6 +81,14 @@ define(function () {
 			}
 		}
 
+		button = createDrawUIButton("Delete", { definition: "Deletes the user-drawn graphics." });
+		docFrag.appendChild(button);
+
+		button.addEventListener("click", function () {
+			var evt = new CustomEvent("delete", null);
+			rootDiv.dispatchEvent(evt);
+		});
+
 		rootDiv.appendChild(docFrag);
 	}
 

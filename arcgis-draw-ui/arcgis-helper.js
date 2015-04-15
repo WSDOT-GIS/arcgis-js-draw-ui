@@ -34,6 +34,10 @@ define([
 		drawUI.root.addEventListener("draw-tool-selected", function (e) {
 			draw.activate(Draw[e.detail]);
 		});
+
+		drawUI.root.addEventListener("delete", function () {
+			gLayer.clear();
+		});
 	}
 
 	return DrawUIHelper;
