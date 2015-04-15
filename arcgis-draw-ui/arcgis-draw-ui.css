@@ -17,60 +17,61 @@
     padding: 0;
     margin: 0;
     display: inline-block;
-    background-position-y: bottom;
+    background-position: 0 0
 }
 
 .point .icon {
-    background-position-x: 0;
+    background-position: 0 0;
 }
 .multi-point .icon {
-    background-position-x: -16px;
+    background-position: -16px 0;
 }
 .line .icon {
-    background-position-x: -32px;
+    background-position: -32px 0;
 }
 .polyline .icon {
-    background-position-x: -48px;
+    background-position: -48px 0;
 }
 .freehand-polyline .icon {
-    background-position-x: -64px;
+    background-position: -64px 0;
 }
 .polygon .icon {
-    background-position-x: -80px;
+    background-position: -80px 0;
 }
 .freehand-polygon .icon {
-    background-position-x: -96px;
+    background-position: -96px 0;
 }
 .circle .icon {
-    background-position-x: -112px;
+    background-position: -112px 0;
 }
 .ellipse .icon {
-    background-position-x: -128px;
+    background-position: -128px 0;
 }
 .triangle .icon {
-    background-position-x: -144px;
+    background-position: -144px 0;
 }
 .arrow .icon {
-    background-position-x: -160px;
+    background-position: -160px 0;
 }
 .up-arrow .icon {
-    background-position-x: -176px;
+    background-position: -176px 0;
 }
 .down-arrow .icon {
-    background-position-x: -192px;
+    background-position: -192px 0;
 }
 .left-arrow .icon {
-    background-position-x: -208px;
+    background-position: -208px 0;
 }
 .right-arrow .icon {
-    background-position-x: -224px;
+    background-position: -224px 0;
 }
 .extent .icon {
-    background-position-x: -240px;
+    background-position: -240px 0;
 }
 .rectangle .icon {
-    background-position-x: -256px;
+    background-position: -256px 0;
 }
+
 
 
 .icon+.label {
