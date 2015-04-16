@@ -10,15 +10,47 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="272"
+   width="288"
    height="16"
-   viewBox="0 0 272 16"
+   viewBox="0 0 288 16"
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="icons.svg">
+   sodipodi:docname="icons.svg"
+   inkscape:export-filename="C:\Users\jacobsj\Documents\GitHub\arcgis-js-draw-ui\arcgis-draw-ui\icons.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
   <defs
-     id="defs4" />
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow1Sstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Sstart"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path4269"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.2) translate(6,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Mstart"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path4263"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.4) translate(10,0)" />
+    </marker>
+  </defs>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -26,9 +58,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.454081"
-     inkscape:cx="118.49031"
-     inkscape:cy="-29.248754"
+     inkscape:zoom="31.874198"
+     inkscape:cx="242.51538"
+     inkscape:cy="5.4681197"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -156,6 +188,12 @@
        spacingy="1"
        empspacing="4"
        dotted="false" />
+    <sodipodi:guide
+       position="288,16"
+       orientation="1,0"
+       id="guide4190"
+       inkscape:label="end"
+       inkscape:color="rgb(0,0,255)" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -174,206 +212,201 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-1036.3622)">
+    <circle
+       cx="8"
+       cy="1044.4514"
+       r="1"
+       id="multipointpart"
+       style="fill:none;stroke:#000000;stroke-opacity:1;stroke-linejoin:miter" />
+    <path
+       style="fill-rule:evenodd;fill:none;stroke:#000000;stroke-opacity:1;stroke-linejoin:miter"
+       d="m 33,1051.3622 14,-14"
+       id="lineicon"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill-rule:evenodd;fill:none;stroke:#000000;stroke-opacity:1;stroke-linejoin:miter"
+       d="m 52,1037.3622 8,1 0,3 -5,1 -3,2 -1,3 5,4"
+       id="polylineicon"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill-rule:evenodd;fill:none;stroke:#000000;stroke-opacity:1;stroke-linejoin:miter"
+       d="m 68,1042.3622 c -2.533457,-5.4093 7.059987,-5.9547 7.876073,-0.2421 0.5313,3.7191 -8.713151,1.9564 -6.028599,5.8341 1.431395,2.0676 8.540142,0.01 6.152526,2.408"
+       id="freehandpolylineicon"
+       inkscape:connector-curvature="0" />
+    <path
+       sodipodi:type="star"
+       id="polygonicon"
+       sodipodi:sides="5"
+       sodipodi:cx="88"
+       sodipodi:cy="1044.3622"
+       sodipodi:r1="7.0710678"
+       sodipodi:r2="3.5355339"
+       sodipodi:arg1="-0.78539816"
+       sodipodi:arg2="-0.15707963"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 93,1039.3622 -1.507994,4.4469 2.808362,3.7633 -4.695269,-0.06 -2.711258,3.8338 -1.393841,-4.484 -4.484011,-1.3939 3.833827,-2.7112 -0.06001,-4.6953 3.763277,2.8084 z"
+       inkscape:transform-center-x="0.34182184"
+       inkscape:transform-center-y="0.34182184"
+       style="fill:none;stroke:#000000;stroke-opacity:1;stroke-linejoin:miter" />
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 100.08771,1039.8664 c 2.54911,-0.8082 5.21597,-1.1899 7.88555,-1.2517 0.64272,0.016 1.36349,-0.1566 1.95536,-0.1042 -0.0692,0.8497 -0.46753,1.6385 -0.74103,2.4389 -0.33001,0.942 -0.80476,1.8344 -1.06755,2.7976 -0.31288,1.2432 0.23335,2.4683 0.84721,3.5217 0.54988,1.0015 1.08115,2.156 0.84624,3.3226 -0.24902,0.69 -1.12027,0.5247 -1.66199,0.3397 -0.68439,-0.2256 -1.32069,-0.5722 -1.93987,-0.936 -0.72753,-0.1795 -1.59942,-0.4168 -2.23653,0.1273 -0.93765,0.6651 -2.0392,1.0427 -3.14192,1.3323 0.0733,-1.6973 0.10544,-3.4153 0.47862,-5.0789 0.37277,-0.5646 0.49084,-1.2674 0.0154,-1.8358 -0.73664,-1.2181 -1.915756,-2.1348 -2.495253,-3.4498 -0.314157,-0.6581 0.39542,-1.1547 0.986081,-1.1831 0.08943,-0.016 0.179431,-0.03 0.269692,-0.041 z"
+       id="freehandpolygonicon"
+       inkscape:connector-curvature="0" />
+    <circle
+       style="fill-opacity:1;fill:none;stroke:#000000;stroke-opacity:1;stroke-linejoin:miter"
+       id="circleicon"
+       cx="120"
+       cy="1044.3622"
+       r="7" />
+    <ellipse
+       style="fill-opacity:1;fill:none;stroke:#000000;stroke-opacity:1;stroke-linejoin:miter"
+       id="ellipseicon"
+       cx="136"
+       cy="1044.3622"
+       rx="7"
+       ry="3" />
+    <path
+       sodipodi:type="star"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-linejoin:miter;stroke-opacity:1"
+       id="triangleicon"
+       sodipodi:sides="3"
+       sodipodi:cx="152"
+       sodipodi:cy="1046.3622"
+       sodipodi:r1="7"
+       sodipodi:r2="3.5"
+       sodipodi:arg1="-1.5707963"
+       sodipodi:arg2="-0.52359878"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 152,1039.3622 3.03109,5.25 3.03109,5.25 -6.06218,0 -6.06218,0 3.03109,-5.25 z"
+       inkscape:transform-center-y="-1.75" />
+    <path
+       style="fill-opacity:1;fill-rule:evenodd;fill:none;stroke:#000000;stroke-opacity:1;stroke-linejoin:miter"
+       d="m 184.07626,1038.0124 -4,5 2,0 0,8 4,0 0,-8 2,0 -4,-5 z"
+       id="uparrowicon"
+       inkscape:connector-curvature="0" />
+    <use
+       style="fill-opacity:1;fill:none;stroke:#000000;stroke-opacity:1;stroke-linejoin:miter"
+       x="0"
+       y="0"
+       xlink:href="#uparrowicon"
+       id="anyarrowicon"
+       transform="matrix(0.68545105,0.72811871,-0.72811871,0.68545105,802.56852,193.56351)"
+       width="100%"
+       height="100%" />
+    <use
+       style="fill-opacity:1;fill:none;stroke:#000000;stroke-opacity:1;stroke-linejoin:miter"
+       x="0"
+       y="0"
+       xlink:href="#uparrowicon"
+       id="downarrowicon"
+       transform="matrix(1,0,0,-1,15.946616,2088.8216)"
+       width="100%"
+       height="100%" />
+    <use
+       style="fill-opacity:1;fill:none;stroke:#000000;stroke-opacity:1;stroke-linejoin:miter"
+       x="0"
+       y="0"
+       xlink:href="#uparrowicon"
+       id="leftarrowicon"
+       transform="matrix(0,-1,1,0,-828.28361,1228.3294)"
+       width="100%"
+       height="100%" />
+    <use
+       style="fill-opacity:1;fill:none;stroke:#000000;stroke-opacity:1;stroke-linejoin:miter"
+       x="0"
+       y="0"
+       xlink:href="#uparrowicon"
+       id="rightarrowicon"
+       transform="matrix(0,1,-1,0,1276.5581,860.30649)"
+       width="100%"
+       height="100%" />
+    <rect
+       style="fill-opacity:1;fill:none;stroke:#000000;stroke-opacity:1;stroke-linejoin:miter"
+       id="rectangleicon"
+       width="12"
+       height="8"
+       x="258"
+       y="1039.3622" />
     <g
-       id="pointgroup"
-       style="fill:none;stroke:#000000;stroke-opacity:1">
-      <circle
-         r="6"
-         cy="1044.3622"
-         cx="8"
-         id="pointicon"
-         style="fill:none;stroke:#000000;stroke-opacity:1" />
-      <g
-         id="multipointicon"
-         style="fill:none;stroke:#000000;stroke-opacity:1">
-        <circle
-           cx="23.366062"
-           cy="1038.1029"
-           r="1"
-           id="multipointpart"
-           style="fill:none;stroke:#000000;stroke-opacity:1" />
-        <use
-           x="0"
-           y="0"
-           xlink:href="#multipointpart"
-           id="use4231"
-           transform="translate(4.3755959,0.48617732)"
-           width="100%"
-           height="100%"
-           style="fill:none;stroke:#000000;stroke-opacity:1" />
-        <use
-           x="0"
-           y="0"
-           xlink:href="#use4231"
-           id="use4233"
-           transform="translate(0.09723547,3.6949476)"
-           width="100%"
-           height="100%"
-           style="fill:none;stroke:#000000;stroke-opacity:1" />
-        <use
-           x="0"
-           y="0"
-           xlink:href="#use4233"
-           id="use4235"
-           transform="translate(-3.7921831,0.06482364)"
-           width="100%"
-           height="100%"
-           style="fill:none;stroke:#000000;stroke-opacity:1" />
-        <use
-           x="0"
-           y="0"
-           xlink:href="#use4235"
-           id="use4237"
-           transform="translate(-2.3984747,2.0743565)"
-           width="100%"
-           height="100%"
-           style="fill:none;stroke:#000000;stroke-opacity:1" />
-        <use
-           x="0"
-           y="0"
-           xlink:href="#use4237"
-           id="use4239"
-           transform="translate(-0.55100095,3.7273594)"
-           width="100%"
-           height="100%"
-           style="fill:none;stroke:#000000;stroke-opacity:1" />
-        <use
-           x="0"
-           y="0"
-           xlink:href="#use4239"
-           id="use4241"
-           transform="translate(3.5653003,2.3660629)"
-           width="100%"
-           height="100%"
-           style="fill:none;stroke:#000000;stroke-opacity:1" />
-      </g>
+       id="multipointicon"
+       style="fill:none;stroke:#000000;stroke-opacity:1;stroke-linejoin:miter">
+      <use
+         style="fill:none;stroke:#000000;stroke-opacity:1;stroke-linejoin:miter"
+         height="100%"
+         width="100%"
+         transform="translate(19.708151,-5.8622799)"
+         id="use4231"
+         xlink:href="#multipointpart"
+         y="0"
+         x="0" />
+      <use
+         style="fill:none;stroke:#000000;stroke-opacity:1;stroke-linejoin:miter"
+         height="100%"
+         width="100%"
+         transform="translate(0.09723547,3.6949476)"
+         id="use4233"
+         xlink:href="#use4231"
+         y="0"
+         x="0" />
+      <use
+         style="fill:none;stroke:#000000;stroke-opacity:1;stroke-linejoin:miter"
+         height="100%"
+         width="100%"
+         transform="translate(-3.7921831,0.06482364)"
+         id="use4235"
+         xlink:href="#use4233"
+         y="0"
+         x="0" />
+      <use
+         style="fill:none;stroke:#000000;stroke-opacity:1;stroke-linejoin:miter"
+         height="100%"
+         width="100%"
+         transform="translate(-2.3984747,2.0743565)"
+         id="use4237"
+         xlink:href="#use4235"
+         y="0"
+         x="0" />
+      <use
+         style="fill:none;stroke:#000000;stroke-opacity:1;stroke-linejoin:miter"
+         height="100%"
+         width="100%"
+         transform="translate(-0.55100095,3.7273594)"
+         id="use4239"
+         xlink:href="#use4237"
+         y="0"
+         x="0" />
+      <use
+         style="fill:none;stroke:#000000;stroke-opacity:1;stroke-linejoin:miter"
+         height="100%"
+         width="100%"
+         transform="translate(3.5653003,2.3660629)"
+         id="use4241"
+         xlink:href="#use4239"
+         y="0"
+         x="0" />
+      <use
+         height="100%"
+         width="100%"
+         transform="translate(15.515904,-6.3484572)"
+         id="use4217"
+         xlink:href="#multipointpart"
+         y="0"
+         x="0"
+         style="fill:none;stroke:#000000;stroke-opacity:1;stroke-linejoin:miter" />
     </g>
-    <g
-       id="linegroup">
-      <path
-         inkscape:connector-curvature="0"
-         id="lineicon"
-         d="m 33,1051.3622 14,-14"
-         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-      <path
-         inkscape:connector-curvature="0"
-         id="polylineicon"
-         d="m 52,1037.3622 8,1 0,3 -5,1 -3,2 -1,3 5,4"
-         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-      <path
-         inkscape:connector-curvature="0"
-         id="freehandpolylineicon"
-         d="m 68,1042.3622 c -2.533457,-5.4093 7.059987,-5.9547 7.876073,-0.2421 0.5313,3.7191 -8.713151,1.9564 -6.028599,5.8341 1.431395,2.0676 8.540142,0.01 6.152526,2.408"
-         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-opacity:1" />
-    </g>
-    <g
-       id="polygongroup">
-      <path
-         inkscape:transform-center-y="0.34182184"
-         inkscape:transform-center-x="0.34182184"
-         d="m 93,1039.3622 -1.507994,4.4469 2.808362,3.7633 -4.695269,-0.06 -2.711258,3.8338 -1.393841,-4.484 -4.484011,-1.3939 3.833827,-2.7112 -0.06001,-4.6953 3.763277,2.8084 z"
-         inkscape:randomized="0"
-         inkscape:rounded="0"
-         inkscape:flatsided="false"
-         sodipodi:arg2="-0.15707963"
-         sodipodi:arg1="-0.78539816"
-         sodipodi:r2="3.5355339"
-         sodipodi:r1="7.0710678"
-         sodipodi:cy="1044.3622"
-         sodipodi:cx="88"
-         sodipodi:sides="5"
-         id="polygonicon"
-         sodipodi:type="star" />
-      <path
-         sodipodi:nodetypes="ccsscsccsc"
-         inkscape:connector-curvature="0"
-         id="freehandpolygonicon"
-         d="m 100.08771,1039.8664 c 2.91229,2.4958 2.83768,-0.5403 3.0467,-1.5386 0.46719,-0.4672 2.6436,4.2136 3.63013,4.2136 0.93234,0 2.16055,-4.0839 3.11154,-4.0839 0.42779,0 -1.59739,4.7134 -1.65301,4.8942 -0.88915,2.8897 1.65301,4.0421 1.65301,6.8065 0,2.1875 -4.70452,-3.9069 -4.76454,-3.9219 -2.71067,-0.6776 -0.11154,4.1259 -4.27836,5.2183 -0.005,0.01 0.31261,-5.9286 0.8427,-6.5472 1.32412,-1.5452 -5.67588,-4.5452 -1.58817,-5.041 z"
-         style="fill:#000000;fill-opacity:1;fill-rule:evenodd" />
-      <circle
-         r="7"
-         cy="1044.3622"
-         cx="120"
-         id="circleicon"
-         style="fill:#000000;fill-opacity:1" />
-      <ellipse
-         ry="3"
-         rx="7"
-         cy="1044.3622"
-         cx="136"
-         id="ellipseicon"
-         style="fill:#000000;fill-opacity:1" />
-      <path
-         inkscape:transform-center-y="-1.75"
-         d="m 152,1039.3622 3.03109,5.25 3.03109,5.25 -6.06218,0 -6.06218,0 3.03109,-5.25 z"
-         inkscape:randomized="0"
-         inkscape:rounded="0"
-         inkscape:flatsided="false"
-         sodipodi:arg2="-0.52359878"
-         sodipodi:arg1="-1.5707963"
-         sodipodi:r2="3.5"
-         sodipodi:r1="7"
-         sodipodi:cy="1046.3622"
-         sodipodi:cx="152"
-         sodipodi:sides="3"
-         id="path4766"
-         style="fill:#000000;fill-opacity:1"
-         sodipodi:type="star" />
-      <path
-         inkscape:connector-curvature="0"
-         id="uparrowicon"
-         d="m 184.07626,1038.0124 -4,5 2,0 0,8 4,0 0,-8 2,0 -4,-5 z"
-         style="fill:#000000;fill-opacity:1;fill-rule:evenodd" />
-      <use
-         height="100%"
-         width="100%"
-         transform="matrix(0.68545105,0.72811871,-0.72811871,0.68545105,802.56852,193.56351)"
-         id="anyarrowicon"
-         xlink:href="#uparrowicon"
-         y="0"
-         x="0"
-         style="fill:#000000;fill-opacity:1" />
-      <use
-         height="100%"
-         width="100%"
-         transform="matrix(1,0,0,-1,15.946616,2088.8216)"
-         id="downarrowicon"
-         xlink:href="#uparrowicon"
-         y="0"
-         x="0"
-         style="fill:#000000;fill-opacity:1" />
-      <use
-         height="100%"
-         width="100%"
-         transform="matrix(0,-1,1,0,-828.28361,1228.3294)"
-         id="leftarrowicon"
-         xlink:href="#uparrowicon"
-         y="0"
-         x="0"
-         style="fill:#000000;fill-opacity:1" />
-      <use
-         height="100%"
-         width="100%"
-         transform="matrix(0,1,-1,0,1276.5581,860.30649)"
-         id="rightarrowicon"
-         xlink:href="#uparrowicon"
-         y="0"
-         x="0"
-         style="fill:#000000;fill-opacity:1" />
-      <rect
-         y="1038.3622"
-         x="242"
-         height="12"
-         width="12"
-         id="extenticon"
-         style="fill:#000000;fill-opacity:1" />
-      <rect
-         y="1039.3622"
-         x="258"
-         height="8"
-         width="12"
-         id="rectangleicon"
-         style="fill:#000000;fill-opacity:1" />
-    </g>
+    <path
+       id="clearicon"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 286,1037.3622 -12,14 m 0,-14 12,14"
+       inkscape:connector-curvature="0" />
+    <path
+       id="extenthandle-0"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.83361775;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 255.30705,1038.2592 a 1.2504267,1.2504267 0 0 1 -1.25042,1.2504 1.2504267,1.2504267 0 0 1 -1.25043,-1.2504 1.2504267,1.2504267 0 0 1 1.25043,-1.2505 1.2504267,1.2504267 0 0 1 1.25042,1.2505 z m -12.0003,12.0944 a 1.2504267,1.2504267 0 0 1 -1.25043,1.2505 1.2504267,1.2504267 0 0 1 -1.25043,-1.2505 1.2504267,1.2504267 0 0 1 1.25043,-1.2504 1.2504267,1.2504267 0 0 1 1.25043,1.2504 z M 242,1038.3622 l 0,10.7422 c 0.0189,-0 0.0377,-0 0.0566,-0 0.69102,3e-4 1.25084,0.561 1.25,1.252 l 0,0.01 10.69336,0 0,-10.8555 c -0.62775,-0.028 -1.13688,-0.5183 -1.18945,-1.1445 z" />
   </g>
 </svg>

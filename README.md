@@ -42,11 +42,11 @@ require([
 
 ```css
 .drawn-features path {
-    stroke: red;
-    stroke-opacity: 1;
-    stroke-width: 10px;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+	stroke: red;
+	stroke-opacity: 1;
+	stroke-width: 10px;
+	stroke-linecap: round;
+	stroke-linejoin: round;
 }
 ```
 
