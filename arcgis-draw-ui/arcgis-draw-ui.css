@@ -115,6 +115,11 @@
     display: none;
 }
 
+button.active {
+    border: 1px inset gray;
+    background: #5a5959;
+}
+
 
 .drawn-features path, .drawn-features rect {
     stroke: red;
@@ -127,4 +132,8 @@
 .drawn-features [data-geometry-type='polygon'], .drawn-features [data-geometry-type='extent'] {
     fill: darkgray;
     fill-opacity: 0.6;
+}
+
+.drawn-features [data-geometry-type$='point'] {
+    stroke-width: 10px;
 }

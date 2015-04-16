@@ -1,69 +1,83 @@
 ﻿/*global define*/
 define([
 	"./main",
+	"dojo/_base/declare",
 	"esri/toolbars/draw",
 	"esri/layers/GraphicsLayer",
 	"esri/graphic"
-], function (DrawUI, Draw, GraphicsLayer, Graphic) {
-	function DrawUIHelper(map, drawUIElement) {
+], function (DrawUI, declare, Draw, GraphicsLayer, Graphic) {
 
-		/**
-		 * @this {HTMLButtonElement}
-		 */
-		var handleButtonClick = function () {
-			var operation = this.value;
-			if (operation) {
-				if (operation === "CLEAR") {
-					gLayer.clear();
-				} else {
-					draw.activate(Draw[operation]);
+	var DrawUIHelper = declare(null, {
+		layer: null,
+		draw: null,
+		constructor: function (map, drawUIElement) {
+
+			/**
+			 * Removes the "active" class from the buttons.
+			 */
+			function removeActiveStyling() {
+				var button = drawUIElement.querySelector("button.active");
+				if (button) {
+					button.classList.remove("active");
 				}
 			}
-		};
+
+			/**
+			 * @this {HTMLButtonElement}
+			 */
+			var handleButtonClick = function () {
+				var operation = this.value;
+				if (operation) {
+					if (operation === "CLEAR") {
+						gLayer.clear();
+					} else {
+						draw.activate(Draw[operation]);
+						map.setInfoWindowOnClick(false);
+						// Add a class to allow "active" operation's button to by styled.
+						this.classList.add("active");
+					}
+				}
+			};
 
 
-		// Create a graphics layer to store drawn graphics.
-		// Styling of graphics will be handled by CSS.
-		var gLayer = new GraphicsLayer({
-			id: "drawnFeatures",
-			styling: false,
-			className: "drawn-features",
-			dataAttributes: "geometry-type"
-		});
+			// Create a graphics layer to store drawn graphics.
+			// Styling of graphics will be handled by CSS.
+			var gLayer = new GraphicsLayer({
+				id: "drawnFeatures",
+				styling: false,
+				className: "drawn-features",
+				dataAttributes: "geometry-type"
+			});
 
-		map.addLayer(gLayer);
+			this.layer = gLayer;
 
-		// Create the Draw toolbar.
-		var draw = new Draw(map);
+			map.addLayer(gLayer);
 
-		// Setup the Draw toolbar's event handler that will add graphics to the graphics layer.
-		draw.on("draw-complete", function (e) {
-			this.deactivate();
-			var graphic = new Graphic(e.geometry, null, {"geometry-type": e.geometry.type});
-			gLayer.add(graphic);
-		});
+			// Create the Draw toolbar.
+			var draw = new Draw(map);
+			this.draw = draw;
 
-		// Create the Draw UI.
-		var drawUI = new DrawUI(drawUIElement);
+			// Setup the Draw toolbar's event handler that will add graphics to the graphics layer.
+			draw.on("draw-complete", function (e) {
+				this.deactivate();
+				map.setInfoWindowOnClick(true);
+				var graphic = new Graphic(e.geometry, null, { "geometry-type": e.geometry.type });
+				gLayer.add(graphic);
+				// Remove styling for active buttons.
+				removeActiveStyling();
+			});
 
-		// Assign event handlers to buttons.
-		var buttons = drawUI.root.querySelectorAll("button");
+			// Create the Draw UI.
+			var drawUI = new DrawUI(drawUIElement);
 
-		for (var i = 0, l = buttons.length; i < l; i += 1) {
-			buttons[i].addEventListener("click", handleButtonClick);
+			// Assign event handlers to buttons.
+			var buttons = drawUI.root.querySelectorAll("button");
+
+			for (var i = 0, l = buttons.length; i < l; i += 1) {
+				buttons[i].addEventListener("click", handleButtonClick);
+			}
 		}
-
-		////// Add event listener that will activate the tool corresponding to the button that the user clicked.
-		////drawUI.root.addEventListener("draw-tool-selected", function (e) {
-		////	draw.activate(Draw[e.detail]);
-		////});
-
-		////drawUI.root.addEventListener("delete", function () {
-		////	gLayer.clear();
-		////});
-
-
-	}
+	});
 
 	return DrawUIHelper;
 });
