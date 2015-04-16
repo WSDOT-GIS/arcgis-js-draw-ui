@@ -1,11 +1,15 @@
 /*global define*/
 define(function () {
 
+	/**
+	 * Represents a drawing operation that the user can select from the toolbar.
+	 */
 	function DrawingOperation(name, properties) {
 		this.name = name;
 		this.definition = properties.definition;
 	}
 
+	// Convert generic objects to DrawingOperation objects.
 	var drawingOperations = (function (ops) {
 		var output = {};
 		for (var name in ops) {
@@ -14,8 +18,7 @@ define(function () {
 			}
 		}
 		return output;
-	}(
-		{
+	}({
 		POINT: { definition: "Draws a point." },
 		MULTI_POINT: { definition: "Draws a Multipoint." },
 
@@ -38,12 +41,21 @@ define(function () {
 		LEFT_ARROW: { definition: "Draws an arrow that points left." },
 		RIGHT_ARROW: { definition: "Draws an arrow that points right." },
 		DOWN_ARROW: { definition: "Draws an arrow that points down." },
-		}));
+		CLEAR: { definition: "Deletes the user-drawn graphics." }
+	}));
 
+	/**
+	 * Creates a CSS class name. Name is lower case with hyphen (-) separated words.
+	 * @returns {string}
+	 */
 	DrawingOperation.prototype.toClassName = function () {
 		return this.name.replace("_", "-").toLowerCase();
 	};
 
+	/**
+	 * Creates a button for the drawing operation.
+	 * @returns {HTMLButtonElement}
+	 */
 	DrawingOperation.prototype.createDrawUIButton = function () {
 		var button = document.createElement("button");
 		button.type = "button";
@@ -73,39 +85,17 @@ define(function () {
 	 * @class
 	 */
 	function DrawUI(rootDiv) {
-		/**
-		 * 
-		 * @this {HTMLButtonElement}
-		 */
-		function activateDrawToolbar() {
-			var evt = new CustomEvent("draw-tool-selected", { detail: this.value });
-			rootDiv.dispatchEvent(evt);
-		}
-
 		this.root = rootDiv;
-
 		rootDiv.classList.add("draw-ui");
-
 		var button, docFrag;
-
 		docFrag = document.createDocumentFragment();
-
 		for (var name in drawingOperations) {
 			if (drawingOperations.hasOwnProperty(name)) {
 				button = drawingOperations[name].createDrawUIButton();
-				button.addEventListener("click", activateDrawToolbar);
 				docFrag.appendChild(button);
 			}
 		}
-
-		button = new DrawingOperation("Delete", { definition: "Deletes the user-drawn graphics." }).createDrawUIButton();
 		docFrag.appendChild(button);
-
-		button.addEventListener("click", function () {
-			var evt = new CustomEvent("delete", null);
-			rootDiv.dispatchEvent(evt);
-		});
-
 		rootDiv.appendChild(docFrag);
 	}
 

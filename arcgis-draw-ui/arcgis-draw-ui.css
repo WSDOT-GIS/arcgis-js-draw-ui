@@ -95,19 +95,19 @@
     background-position: -256px 0;
 }
 
-.delete .icon {
+.clear .icon {
     background-position: -272px 0;
 }
 
-.draw-ui button.delete {
+.draw-ui button.clear {
     background: red;
 }
 
-.draw-ui button.delete:hover {
+.draw-ui button.clear:hover {
     background: #ffafaf;
 }
 
-.draw-ui button.delete:active {
+.draw-ui button.clear:active {
     background: #ffa400;
 }
 

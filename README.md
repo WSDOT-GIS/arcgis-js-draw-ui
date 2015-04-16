@@ -6,7 +6,7 @@ User interface for ArcGIS API for JavaScript's [Draw] toolbar.
 ## Design Goals ##
 
 * The UI code is kept separate from the ArcGIS API for JavaScript code. This allows it to be used with other frameworks in the future.
-* Use built-in functionality wherever possible. (E.g., [CustomEvents] are used to fire events instead of [dojo/on].) Use polyfills for backward compatibility with older browsers.
+* Use built-in functionality wherever possible. Use polyfills for backward compatibility with older browsers.
 * Buttons are standard HTML `<button>` elements. Some frameworks (e.g. Dojo) have their own "button" objects that are not actually HTML `<button>` elements, but instead are made of `<span>` or other types of HTML elements.
 
 ## Generated markup ##
@@ -15,16 +15,6 @@ Inside the root element will be a series of `<button>` elements.  Each button ha
 
 1. The first `<span>` has a class of `label` and contains a text label. This label span can be hidden using CSS if desired if you only want to see icons.
 2. The second `<span>` is empty and has an class of `icon`. This is used to give the button an icon using CSS.
-
-## Polyfills ##
-
-The draw UI uses [CustomEvents] to communicate. For [browsers that do not support CustomEvents] you will need to use a polyfill.
-
-E.g. 
-
-```html
-<script src="//cdn.polyfill.io/v1/polyfill.min.js?features=CustomEvent"></script>
-```
 
 ## Setup ##
 
