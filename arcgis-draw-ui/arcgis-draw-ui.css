@@ -134,6 +134,6 @@ button.active {
     fill-opacity: 0.6;
 }
 
-.drawn-features [data-geometry-type$='point'] {
+.drawn-features [data-geometry-type$='point'], .drawn-features [data-geometry-type$='point'] path {
     stroke-width: 10px;
 }
