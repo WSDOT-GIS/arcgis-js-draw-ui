@@ -33,4 +33,10 @@ require([
 	});
 
 	helper = new DrawUIHelper(map, document.getElementById("drawUI"));
+	helper.on("draw-activate", function () {
+		console.log("draw-activate");
+	});
+	helper.on("draw-complete", function (e) {
+		console.log("draw-complete", e);
+	});
 });

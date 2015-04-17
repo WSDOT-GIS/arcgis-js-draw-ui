@@ -2,16 +2,17 @@
 define([
 	"./main",
 	"dojo/_base/declare",
+	"dojo/Evented",
 	"esri/toolbars/draw",
 	"esri/layers/GraphicsLayer",
 	"esri/graphic"
-], function (DrawUI, declare, Draw, GraphicsLayer, Graphic) {
+], function (DrawUI, declare, Evented, Draw, GraphicsLayer, Graphic) {
 
-	var DrawUIHelper = declare(null, {
+	var DrawUIHelper = declare([Evented], {
 		layer: null,
 		draw: null,
 		constructor: function (map, drawUIElement) {
-
+			var self = this;
 			/**
 			 * Removes the "active" class from the buttons.
 			 */
@@ -35,6 +36,7 @@ define([
 						map.setInfoWindowOnClick(false);
 						// Add a class to allow "active" operation's button to by styled.
 						this.classList.add("active");
+						self.emit("draw-activate", {});
 					}
 				}
 			};
@@ -60,6 +62,7 @@ define([
 			// Setup the Draw toolbar's event handler that will add graphics to the graphics layer.
 			draw.on("draw-complete", function (e) {
 				this.deactivate();
+				self.emit("draw-complete", e);
 				map.setInfoWindowOnClick(true);
 				var graphic = new Graphic(e.geometry, null, { "geometry-type": e.geometry.type });
 				gLayer.add(graphic);
