@@ -121,7 +121,7 @@ button.active {
 }
 
 
-.drawn-features path, .drawn-features rect {
+/*.drawn-features path, .drawn-features rect {
     stroke: red;
     stroke-opacity: 1;
     stroke-width: 3px;
@@ -136,4 +136,4 @@ button.active {
 
 .drawn-features [data-geometry-type$='point'], .drawn-features [data-geometry-type$='point'] path {
     stroke-width: 10px;
-}
+}*/

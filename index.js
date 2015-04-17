@@ -3,9 +3,22 @@ require([
 	"esri/map",
 	"esri/InfoTemplate",
 	"esri/layers/ArcGISDynamicMapServiceLayer",
-	"arcgis-draw-ui/arcgis-helper"
-], function (Map, InfoTemplate, ArcGISDynamicMapServiceLayer, DrawUIHelper) {
+	"arcgis-draw-ui/arcgis-helper",
+	"esri/symbols/SimpleMarkerSymbol",
+	"esri/symbols/SimpleLineSymbol",
+	"esri/symbols/SimpleFillSymbol"
+], function (Map, InfoTemplate, ArcGISDynamicMapServiceLayer, DrawUIHelper, SimpleMarkerSymbol, SimpleLineSymbol, SimpleFillSymbol) {
 	var map, helper;
+
+	var lineSymbol = new SimpleLineSymbol();
+	var pointSymbol = new SimpleMarkerSymbol();
+	var fillSymbol = new SimpleFillSymbol();
+
+	lineSymbol.setColor("red");
+	pointSymbol.setOutline(lineSymbol);
+	fillSymbol.setOutline(lineSymbol);
+
+	var symbolOptions = new DrawUIHelper.SymbolOptions(pointSymbol, lineSymbol, fillSymbol);
 
 	var layer = new ArcGISDynamicMapServiceLayer("http://www.wsdot.wa.gov/geosvcs/ArcGIS/rest/services/Shared/LegislativeDistricts/MapServer", {
 		id: "Legislative Districts",
@@ -32,7 +45,7 @@ require([
 		console.log("layer info", layer.infoTemplates);
 	});
 
-	helper = new DrawUIHelper(map, document.getElementById("drawUI"));
+	helper = new DrawUIHelper(map, document.getElementById("drawUI"), symbolOptions);
 	helper.on("draw-activate", function () {
 		console.log("draw-activate");
 	});
