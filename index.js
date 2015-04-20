@@ -52,4 +52,7 @@ require([
 	helper.on("draw-complete", function (e) {
 		console.log("draw-complete", e);
 	});
+
+	// Setup draw layer info template.
+	helper.layer.setInfoTemplate(new InfoTemplate());
 });
