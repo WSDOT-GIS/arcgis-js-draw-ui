@@ -80,9 +80,10 @@ define([
 			 * Removes the "active" class from the buttons.
 			 */
 			function removeActiveStyling() {
-				var button = drawUIElement.querySelector("button.active");
-				if (button) {
-					button.classList.remove("active");
+				var buttons = drawUIElement.querySelectorAll("button.active");
+
+				for (var i = 0, l = buttons.length; i < l; i += 1) {
+					buttons[i].classList.remove("active");
 				}
 			}
 
@@ -98,6 +99,7 @@ define([
 						draw.activate(Draw[operation]);
 						map.setInfoWindowOnClick(false);
 						// Add a class to allow "active" operation's button to by styled.
+						removeActiveStyling();
 						this.classList.add("active");
 						self.emit("draw-activate", {});
 					}
