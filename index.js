@@ -10,6 +10,35 @@ require([
 ], function (Map, InfoTemplate, ArcGISDynamicMapServiceLayer, DrawUIHelper, SimpleMarkerSymbol, SimpleLineSymbol, SimpleFillSymbol) {
 	var map, helper;
 
+
+
+	/**
+	 * Creates a document fragment containing a button that will
+	 * delete the associated graphic from its parent layer.
+	 * @param {esri/Graphic} graphic
+	 * @returns {HTMLDocumentFragment}
+	 */
+	function createInfoWindowContent(graphic) {
+		var frag = document.createDocumentFragment();
+		var btn = document.createElement("button");
+		btn.type = "Button";
+		btn.onclick = deleteFeature;
+		btn.textContent = "Delete";
+		btn.title = "Delete the selected graphic.";
+		btn.classList.add("delete-feature-button");
+
+		var deleteFeature = function () {
+			map.infoWindow.hide();
+			console.log(graphic);
+			helper.layer.remove(graphic);
+		};
+
+		btn.onclick = deleteFeature;
+		
+		frag.appendChild(btn);
+		return frag;
+	}
+
 	var lineSymbol = new SimpleLineSymbol();
 	var pointSymbol = new SimpleMarkerSymbol();
 	var fillSymbol = new SimpleFillSymbol();
@@ -54,5 +83,5 @@ require([
 	});
 
 	// Setup draw layer info template.
-	helper.layer.setInfoTemplate(new InfoTemplate());
+	helper.layer.setInfoTemplate(new InfoTemplate("Drawn Graphic", createInfoWindowContent));
 });
