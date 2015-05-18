@@ -94,7 +94,9 @@ define([
 				var operation = this.value;
 				if (operation) {
 					if (operation === "CLEAR") {
-						gLayer.clear();
+						if (window.confirm("Are you sure you want to delete all of your drawn features?")) {
+							gLayer.clear();
+						}
 					} else {
 						draw.activate(Draw[operation]);
 						map.setInfoWindowOnClick(false);
