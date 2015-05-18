@@ -1,4 +1,4 @@
-﻿@import 'arcgis-draw-ui/arcgis-draw-ui.css';
+﻿@import '../arcgis-draw-ui.css';
 
 html, body, #map, .map.container {
     padding:0;

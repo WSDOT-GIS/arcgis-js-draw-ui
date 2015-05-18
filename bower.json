@@ -1,0 +1,29 @@
+{
+  "name": "arcgis-js-draw-ui",
+  "version": "1.0.0",
+  "homepage": "https://github.com/WSDOT-GIS/arcgis-js-draw-ui",
+  "authors": [
+    "WSDOT"
+  ],
+  "description": "UI for ArcGIS API for JavaScript Draw toolbar",
+  "main": "ArcGisDrawUI.js",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "UI",
+    "ArcGIS",
+    "draw",
+    "geometry",
+    "graphic"
+  ],
+  "license": "Unlicense",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "demo"
+  ]
+}

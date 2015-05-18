@@ -1,6 +1,6 @@
 ﻿/*global define*/
 define([
-	"./main",
+	"./ArcGisDrawUI",
 	"dojo/_base/declare",
 	"dojo/Evented",
 	"esri/toolbars/draw",

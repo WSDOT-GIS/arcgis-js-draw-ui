@@ -3,7 +3,7 @@ require([
 	"esri/map",
 	"esri/InfoTemplate",
 	"esri/layers/ArcGISDynamicMapServiceLayer",
-	"arcgis-draw-ui/arcgis-helper",
+	"ArcGisDrawUI/ArcGisHelper",
 	"esri/symbols/SimpleMarkerSymbol",
 	"esri/symbols/SimpleLineSymbol",
 	"esri/symbols/SimpleFillSymbol"
