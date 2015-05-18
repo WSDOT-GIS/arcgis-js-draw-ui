@@ -6,8 +6,9 @@ require([
 	"ArcGisDrawUI/ArcGisHelper",
 	"esri/symbols/SimpleMarkerSymbol",
 	"esri/symbols/SimpleLineSymbol",
-	"esri/symbols/SimpleFillSymbol"
-], function (Map, InfoTemplate, ArcGISDynamicMapServiceLayer, DrawUIHelper, SimpleMarkerSymbol, SimpleLineSymbol, SimpleFillSymbol) {
+	"esri/symbols/SimpleFillSymbol",
+	"esri/symbols/TextSymbol"
+], function (Map, InfoTemplate, ArcGISDynamicMapServiceLayer, DrawUIHelper, SimpleMarkerSymbol, SimpleLineSymbol, SimpleFillSymbol, TextSymbol) {
 	var map, helper;
 
 
@@ -42,12 +43,14 @@ require([
 	var lineSymbol = new SimpleLineSymbol();
 	var pointSymbol = new SimpleMarkerSymbol();
 	var fillSymbol = new SimpleFillSymbol();
+	var textSymbol = new TextSymbol("Default Label");
 
 	lineSymbol.setColor("red");
 	pointSymbol.setOutline(lineSymbol);
 	fillSymbol.setOutline(lineSymbol);
+	textSymbol.setColor("red");
 
-	var symbolOptions = new DrawUIHelper.SymbolOptions(pointSymbol, lineSymbol, fillSymbol);
+	var symbolOptions = new DrawUIHelper.SymbolOptions(pointSymbol, lineSymbol, fillSymbol, textSymbol);
 
 	var layer = new ArcGISDynamicMapServiceLayer("http://www.wsdot.wa.gov/geosvcs/ArcGIS/rest/services/Shared/LegislativeDistricts/MapServer", {
 		id: "Legislative Districts",

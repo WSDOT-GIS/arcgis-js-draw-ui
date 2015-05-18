@@ -2,17 +2,19 @@
 define([
 	"./ArcGisDrawUI",
 	"dojo/_base/declare",
+	"dojo/_base/lang",
 	"dojo/Evented",
 	"esri/toolbars/draw",
 	"esri/layers/GraphicsLayer",
 	"esri/graphic"
-], function (DrawUI, declare, Evented, Draw, GraphicsLayer, Graphic) {
+], function (DrawUI, declare, lang, Evented, Draw, GraphicsLayer, Graphic) {
 
 	/**
 	 * @typedef {Object} SymbolOptionsOptions
 	 * @property {esri/symbols/MarkerSymbol} point - Symbol that will be used for point features.
 	 * @property {esri/symbols/LineSymbol} line - Symbol that will be used for line features.
 	 * @property {esri/symbols/FillSymbol} polygon - Symbol that will be used for polygon features.
+	 * @property {esry/symbols/TextSymbol} text - Symbol that will be used as the basis for text labels.
 	 */
 
 
@@ -21,19 +23,23 @@ define([
 	 * @param {(esri/symbols/MarkerSymbol|SymbolOptionsOptions)} pointSymbolOrSymbolOptions
 	 * @param {esri/symbols/LineSymbol} [lineSymbol] - Required if first parameter was a MarkerSymbol.
 	 * @param {esri/symbols/FillSymbol} [polygonSymbol] - Required if the first parameter was a MarkerSymbol.
+	 * @param {esry/symbols/TextSymbol} [textSymbol] - Required if the first parameter was a MarkerSymbol
 	 */
 	function SymbolOptions() {
-		this.point = null;
-		this.line = null;
-		this.polygon = null;
 		if (arguments.length === 1) {
-			this.point = arguments[0].point;
-			this.line = arguments[0].line;
-			this.polygon = arguments[0].polygon;
-		} else if (arguments.length === 3) {
-			this.point = arguments[0];
-			this.line = arguments[1];
-			this.polygon = arguments[2];
+			Object.defineProperties(this, {
+				point: { value: arguments[0].point },
+				line: { value: arguments[0].line },
+				polygon: { value: arguments[0].polygon },
+				text: {value: arguments[0].text }
+			});
+		} else if (arguments.length === 4) {
+			Object.defineProperties(this, {
+				point: { value: arguments[0] },
+				line: { value: arguments[1] },
+				polygon: { value: arguments[2] },
+				text: { value: arguments[3] }
+			});
 		} else {
 			throw TypeError("Invalid number of arguments.");
 		}
@@ -76,6 +82,22 @@ define([
 		 */
 		constructor: function (map, drawUIElement, symbols, graphicsLayerOptions) {
 			var self = this;
+
+			/**
+			 * Create a text symbol IF the text button is currently active; otherwise returns null.
+			 * @returns {?esri/symbols/TextSymbol}
+			 */
+			function createTextSymbol() {
+				var activeTextButton = drawUIElement.querySelector("button.text.active");
+				// TODO: get text from a UI control.
+				var output = null;
+				if (activeTextButton) {
+					output = lang.clone(symbols.text);
+					output.setText(drawUIElement.querySelector("input[name='label']").value);
+				}
+				return output;
+			}
+
 			/**
 			 * Removes the "active" class from the buttons.
 			 */
@@ -98,12 +120,16 @@ define([
 							gLayer.clear();
 						}
 					} else {
-						draw.activate(Draw[operation]);
 						map.setInfoWindowOnClick(false);
+						if (operation === "TEXT") {
+							draw.activate(Draw.POINT);
+						} else {
+							draw.activate(Draw[operation]);
+							self.emit("draw-activate", {});
+						}
 						// Add a class to allow "active" operation's button to by styled.
 						removeActiveStyling();
 						this.classList.add("active");
-						self.emit("draw-activate", {});
 					}
 				}
 			};
@@ -141,7 +167,7 @@ define([
 				this.deactivate();
 				self.emit("draw-complete", e);
 				map.setInfoWindowOnClick(true);
-				var graphic = new Graphic(e.geometry, symbols ? symbols.getSymbol(e.geometry) : null, { "geometry-type": e.geometry.type });
+				var graphic = new Graphic(e.geometry, symbols ? createTextSymbol() || symbols.getSymbol(e.geometry) : null, { "geometry-type": e.geometry.type });
 				gLayer.add(graphic);
 				// Remove styling for active buttons.
 				removeActiveStyling();

@@ -5,8 +5,10 @@ define(function () {
 	 * Represents a drawing operation that the user can select from the toolbar.
 	 */
 	function DrawingOperation(name, properties) {
-		this.name = name;
-		this.definition = properties.definition;
+		Object.defineProperties(this, {
+			name: { value: name },
+			definition: {value: properties.definition}
+		});
 	}
 
 	// Convert generic objects to DrawingOperation objects.
@@ -19,6 +21,7 @@ define(function () {
 		}
 		return output;
 	}({
+		TEXT: {definition: "Adds a text label"},
 		POINT: { definition: "Draws a point." },
 		MULTI_POINT: { definition: "Draws a Multipoint." },
 
@@ -61,6 +64,7 @@ define(function () {
 		button.type = "button";
 		button.value = this.name;
 		button.title = this.definition;
+		button.disabled = this.name === "TEXT";
 		button.classList.add(this.toClassName());
 
 		var iconSpan = document.createElement("span");
@@ -85,7 +89,7 @@ define(function () {
 	 * @class
 	 */
 	function DrawUI(rootDiv) {
-		this.root = rootDiv;
+
 		rootDiv.classList.add("draw-ui");
 		var button, docFrag;
 		docFrag = document.createDocumentFragment();
@@ -97,6 +101,23 @@ define(function () {
 		}
 		docFrag.appendChild(button);
 		rootDiv.appendChild(docFrag);
+
+		var textbox = document.createElement("input");
+		textbox.type = "text";
+		textbox.name = "label";
+		textbox.placeholder = "label for text goes here";
+
+		var textButton = rootDiv.querySelector("button[value='TEXT']");
+
+		textbox.addEventListener("change", function () {
+			textButton.disabled = !Boolean(this.value);
+		});
+
+		rootDiv.insertBefore(textbox, rootDiv.firstChild);
+
+		Object.defineProperties(this, {
+			root: { value: rootDiv }
+		});
 	}
 
 	DrawUI.drawingOperations = drawingOperations;
