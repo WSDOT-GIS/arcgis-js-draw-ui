@@ -123,6 +123,7 @@ define([
 						map.setInfoWindowOnClick(false);
 						if (operation === "TEXT") {
 							draw.activate(Draw.POINT);
+							self.emit("draw-activate", {});
 						} else {
 							draw.activate(Draw[operation]);
 							self.emit("draw-activate", {});
