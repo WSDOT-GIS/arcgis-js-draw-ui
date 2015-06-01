@@ -48,6 +48,10 @@ require([
 }
 ```
 
+## Credits ##
+
+[Trashcan icon](https://openclipart.org/detail/141991/trashcan)
+
 [CustomEvents]:https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent
 [browsers that do not support CustomEvents]:https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent#Browser_compatibility
 [dojo/on]:https://dojotoolkit.org/reference-guide/dojo/on.html
