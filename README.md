@@ -3,6 +3,8 @@ ArcGIS JavaScript Draw UI
 
 User interface for ArcGIS API for JavaScript's [Draw] toolbar.
 
+[Demo](http://wsdot-gis.github.io/arcgis-js-draw-ui/demo/)
+
 ## Design Goals ##
 
 * The UI code is kept separate from the ArcGIS API for JavaScript code. This allows it to be used with other frameworks in the future.
