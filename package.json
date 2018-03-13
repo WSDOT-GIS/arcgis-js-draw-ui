@@ -3,6 +3,10 @@
   "version": "1.2.0",
   "description": "UI for ArcGIS API for JavaScript Draw toolbar",
   "main": "ArcGisDrawUI.js",
+  "files": [
+    "arcgis-draw-ui.css",
+    "ArcGisHelper.js"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
