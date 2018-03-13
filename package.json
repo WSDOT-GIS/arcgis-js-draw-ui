@@ -1,0 +1,22 @@
+{
+  "name": "arcgis-js-draw-ui",
+  "version": "1.2.0",
+  "description": "UI for ArcGIS API for JavaScript Draw toolbar",
+  "main": "ArcGisDrawUI.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WSDOT-GIS/arcgis-js-draw-ui.git"
+  },
+  "author": "WSDOT",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/WSDOT-GIS/arcgis-js-draw-ui/issues"
+  },
+  "homepage": "https://github.com/WSDOT-GIS/arcgis-js-draw-ui#readme",
+  "devDependencies": {
+    "prettier": "^1.11.1"
+  }
+}
