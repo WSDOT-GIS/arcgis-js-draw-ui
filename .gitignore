@@ -1,5 +1,5 @@
 dist
-demo/*.js
+**/demo/*.js
 
 .vscode/*
 !.vscode/settings.json

@@ -1,10 +1,18 @@
-import DrawUI = require("./ArcGisDrawUI");
+import DrawUI from "./ArcGisDrawUI";
+
 import declare = require("dojo/_base/declare");
 import lang = require("dojo/_base/lang");
 import Evented = require("dojo/Evented");
 import Draw = require("esri/toolbars/draw");
 import GraphicsLayer = require("esri/layers/GraphicsLayer");
 import Graphic = require("esri/graphic");
+
+import EsriMap = require("esri/map");
+import Geometry = require("esri/geometry/Geometry");
+import MarkerSymbol = require("esri/symbols/MarkerSymbol");
+import LineSymbol = require("esri/symbols/LineSymbol");
+import FillSymbol = require("esri/symbols/FillSymbol");
+import TextSymbol = require("esri/symbols/TextSymbol");
 
 /**
  * @typedef {Object} SymbolOptionsOptions
@@ -13,55 +21,74 @@ import Graphic = require("esri/graphic");
  * @property {esri/symbols/FillSymbol} polygon - Symbol that will be used for polygon features.
  * @property {esry/symbols/TextSymbol} text - Symbol that will be used as the basis for text labels.
  */
-
-/**
- * Contains point, line, and polygon symbols.
- * @param {(esri/symbols/MarkerSymbol|SymbolOptionsOptions)} pointSymbolOrSymbolOptions
- * @param {esri/symbols/LineSymbol} [lineSymbol] - Required if first parameter was a MarkerSymbol.
- * @param {esri/symbols/FillSymbol} [polygonSymbol] - Required if the first parameter was a MarkerSymbol.
- * @param {esry/symbols/TextSymbol} [textSymbol] - Required if the first parameter was a MarkerSymbol
- */
-function SymbolOptions(...symbols: any[]) {
-  if (arguments.length === 1) {
-    Object.defineProperties(this, {
-      point: { value: arguments[0].point },
-      line: { value: arguments[0].line },
-      polygon: { value: arguments[0].polygon },
-      text: { value: arguments[0].text }
-    });
-  } else if (arguments.length === 4) {
-    Object.defineProperties(this, {
-      point: { value: arguments[0] },
-      line: { value: arguments[1] },
-      polygon: { value: arguments[2] },
-      text: { value: arguments[3] }
-    });
-  } else {
-    throw TypeError("Invalid number of arguments.");
-  }
+export interface ISymbolOptionConstructorOptions {
+  point: MarkerSymbol;
+  line: LineSymbol;
+  polygon: FillSymbol;
+  text: TextSymbol;
 }
 
-/**
- * Get's the symbol approprate for the graphic.
- * @param {(esri/Graphic|esri/geometries/Geometry)} graphicOrGeometry
- * @returns {esri/symbols/Symbol}
- */
-SymbolOptions.prototype.getSymbol = function(graphicOrGeometry) {
-  let geometry, symbol;
-  if (graphicOrGeometry) {
-    if (graphicOrGeometry.geometry) {
-      geometry = graphicOrGeometry.geometry;
-    } else if (graphicOrGeometry.type) {
-      geometry = graphicOrGeometry;
+export class SymbolOptions {
+  public point: MarkerSymbol;
+  public line: LineSymbol;
+  public polygon: FillSymbol;
+  public text: TextSymbol;
+  /**
+   * Contains point, line, and polygon symbols.
+   * @param {(esri/symbols/MarkerSymbol|SymbolOptionsOptions)} pointSymbolOrSymbolOptions
+   * @param {esri/symbols/LineSymbol} [lineSymbol] - Required if first parameter was a MarkerSymbol.
+   * @param {esri/symbols/FillSymbol} [polygonSymbol] - Required if the first parameter was a MarkerSymbol.
+   * @param {esry/symbols/TextSymbol} [textSymbol] - Required if the first parameter was a MarkerSymbol
+   */
+  constructor(
+    ...symbols: Array<
+      | ISymbolOptionConstructorOptions
+      | MarkerSymbol
+      | LineSymbol
+      | FillSymbol
+      | TextSymbol
+    >
+  ) {
+    if (arguments.length === 1) {
+      this.point = arguments[0].point;
+      this.line = arguments[0].line;
+      this.polygon = arguments[0].polygon;
+      this.text = arguments[0].text;
+    } else if (arguments.length === 4) {
+      this.point = arguments[0];
+      this.line = arguments[1];
+      this.polygon = arguments[2];
+      this.text = arguments[3];
+    } else {
+      throw TypeError("Invalid number of arguments.");
     }
   }
-  if (geometry) {
-    symbol = /\w*point/i.test(geometry.type)
-      ? this.point
-      : /\w*line/i.test(geometry.type) ? this.line : this.polygon;
+
+  /**
+   * Get's the symbol approprate for the graphic.
+   * @param {(esri/Graphic|esri/geometries/Geometry)} graphicOrGeometry
+   * @returns {esri/symbols/Symbol}
+   */
+  public getSymbol(graphicOrGeometry: Graphic | Geometry) {
+    let geometry, symbol;
+    if (graphicOrGeometry) {
+      if (graphicOrGeometry instanceof Graphic && graphicOrGeometry.geometry) {
+        geometry = graphicOrGeometry.geometry;
+      } else if (
+        graphicOrGeometry instanceof Geometry &&
+        graphicOrGeometry.type
+      ) {
+        geometry = graphicOrGeometry;
+      }
+    }
+    if (geometry) {
+      symbol = /\w*point/i.test(geometry.type)
+        ? this.point
+        : /\w*line/i.test(geometry.type) ? this.line : this.polygon;
+    }
+    return symbol;
   }
-  return symbol;
-};
+}
 
 /**
  * Creates a DrawUI and esri/toolbars/draw and then connects them.
@@ -78,7 +105,13 @@ const DrawUIHelper = declare(undefined, [Evented], {
    * @param {Object} graphicsLayerOptions - See esri/layer/GraphicsLayer constructor for details.
    * @constructs
    */
-  constructor(map, drawUIElement, symbols, graphicsLayerOptions) {
+  constructor(
+    this: any,
+    map: EsriMap,
+    drawUIElement: HTMLElement,
+    symbols: SymbolOptions,
+    graphicsLayerOptions: any
+  ) {
     const self = this;
 
     /**
@@ -90,12 +123,13 @@ const DrawUIHelper = declare(undefined, [Evented], {
         "button.text.active"
       );
       // TODO: get text from a UI control.
-      let output = null;
+      let output: TextSymbol | null = null;
       if (activeTextButton) {
-        output = lang.clone(symbols.text);
-        output.setText(
-          drawUIElement.querySelector("input[name='label']").value
+        output = lang.clone(symbols.text) as TextSymbol;
+        const labelInput: HTMLInputElement | null = drawUIElement.querySelector(
+          "input[name='label']"
         );
+        output.setText(labelInput ? labelInput.value : "");
       }
       return output;
     }
@@ -114,7 +148,7 @@ const DrawUIHelper = declare(undefined, [Evented], {
     /**
      * @this {HTMLButtonElement}
      */
-    const handleButtonClick = function() {
+    const handleButtonClick = function(this: HTMLButtonElement) {
       const operation = this.value;
       if (operation) {
         if (operation === "CLEAR") {
@@ -131,7 +165,7 @@ const DrawUIHelper = declare(undefined, [Evented], {
             draw.activate(Draw.POINT);
             self.emit("draw-activate", {});
           } else {
-            draw.activate(Draw[operation]);
+            draw.activate((Draw as any)[operation]);
             self.emit("draw-activate", {});
           }
           // Add a class to allow "active" operation's button to by styled.
@@ -173,13 +207,15 @@ const DrawUIHelper = declare(undefined, [Evented], {
     this.draw = draw;
 
     // Setup the Draw toolbar's event handler that will add graphics to the graphics layer.
-    draw.on("draw-complete", function(e) {
+    draw.on("draw-complete", function(this: any, e) {
       this.deactivate();
       self.emit("draw-complete", e);
       map.setInfoWindowOnClick(true);
       const graphic = new Graphic(
         e.geometry,
-        symbols ? createTextSymbol() || symbols.getSymbol(e.geometry) : null,
+        symbols
+          ? createTextSymbol() || symbols.getSymbol(e.geometry)
+          : undefined,
         { "geometry-type": e.geometry.type }
       );
       gLayer.add(graphic);
@@ -199,6 +235,5 @@ const DrawUIHelper = declare(undefined, [Evented], {
   }
 });
 
-DrawUIHelper.SymbolOptions = SymbolOptions;
-
-export = DrawUIHelper;
+// export default DrawUIHelper;
+// export { SymbolOptions };
