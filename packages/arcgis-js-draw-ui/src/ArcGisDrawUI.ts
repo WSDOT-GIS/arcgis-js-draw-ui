@@ -1,3 +1,7 @@
+/**
+ * This module provides the UI for the toolbar.
+ */
+
 export interface IOperationInfo {
   [key: string]: any;
   definition: string;
@@ -44,11 +48,19 @@ export class DrawingOperation {
   }
 }
 
+/**
+ * list of available drawing operations.
+ */
 export interface IDrawingOperationList {
   [key: string]: DrawingOperation;
 }
 
 // Convert generic objects to DrawingOperation objects.
+
+/**
+ * Provides info about available drawing operations represented
+ * in the UI buttons.
+ */
 const drawingOperations: IDrawingOperationList = (function(ops: {
   [name: string]: any;
 }) {
@@ -94,11 +106,10 @@ export default class DrawUI {
   constructor(public root: HTMLElement) {
     const rootDiv = this.root;
     rootDiv.classList.add("draw-ui");
-    let button, docFrag;
-    docFrag = document.createDocumentFragment();
+    const docFrag = document.createDocumentFragment();
     for (const name in drawingOperations) {
       if (drawingOperations.hasOwnProperty(name)) {
-        button = drawingOperations[name].createDrawUIButton();
+        const button = drawingOperations[name].createDrawUIButton();
         docFrag.appendChild(button);
       }
     }
