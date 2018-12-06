@@ -1,6 +1,6 @@
 {
   "name": "@wsdot/arcgis-js-draw-ui",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "UI for ArcGIS API for JavaScript Draw toolbar",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
@@ -26,8 +26,8 @@
     "@types/dojo": "^1.9.41",
     "prettier": "^1.15.3",
     "tslint": "^5.11.0",
-    "typescript": "^3.2.1",
     "tslint-config-prettier": "^1.17.0",
-    "tslint-plugin-prettier": "^2.0.1"
+    "tslint-plugin-prettier": "^2.0.1",
+    "typescript": "^3.2.1"
   }
 }
