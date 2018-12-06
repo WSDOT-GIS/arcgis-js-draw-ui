@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prepare": "webpack"
+    "prepare": "node scripts/copycss.js && webpack"
   },
   "keywords": [],
   "author": "",

@@ -1,5 +1,4 @@
-dist
-**/demo/*.js
+packages/*/dist
 
 .vscode/*
 !.vscode/settings.json

@@ -34,7 +34,31 @@ $ npm install -SD typescript @types/arcgis-js-api@3
 
 ### Required CSS ###
 
-The package includes a CSS file for providing the necessary styling for the toolbar. As part of your build process, you'll need to copy the `node_modules/@wsdot/arcgis-js-draw-ui/arcgis-draw-ui.css` file to your website directory and then reference this copy in your page.
+The package includes a CSS file for providing the necessary styling for the toolbar. As part of your build process, you'll need to copy the `node_modules/@wsdot/arcgis-js-draw-ui/arcgis-draw-ui.css` file to your website directory and then reference this copy in your page. If this CSS file is not included, the buttons will have text labels instead of icons.
+
+#### Sample NodeJS script to copy CSS file ####
+
+```javascript
+/**
+ * Copies the CSS file from the @wsdot/arcgis-js-draw-ui package to the root folder.
+ */
+
+const fs = require("fs");
+
+(async () => {
+  process.stderr.write("Copying CSS file...");
+  try {
+    await fs.promises.copyFile(
+      "node_modules/@wsdot/arcgis-js-draw-ui/arcgis-draw-ui.css",
+      "arcgis-draw-ui.css"
+    );
+  } catch (error) {
+    console.error("error copying file", error);
+    throw error;
+  }
+})();
+
+```
 
 ### Use ###
 
@@ -140,7 +164,4 @@ helper.layer.setInfoTemplate(
 
 [Trashcan icon](https://openclipart.org/detail/141991/trashcan)
 
-[CustomEvents]:https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent
-[browsers that do not support CustomEvents]:https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent#Browser_compatibility
-[dojo/on]:https://dojotoolkit.org/reference-guide/dojo/on.html
 [Draw]:https://developers.arcgis.com/javascript/3/jsapi/draw-amd.html
