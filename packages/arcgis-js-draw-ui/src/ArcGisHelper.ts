@@ -1,6 +1,5 @@
 import DrawUI from "./ArcGisDrawUI";
 
-import declare = require("dojo/_base/declare");
 import lang = require("dojo/_base/lang");
 import Evented = require("dojo/Evented");
 import Draw = require("esri/toolbars/draw");
@@ -13,6 +12,7 @@ import MarkerSymbol = require("esri/symbols/MarkerSymbol");
 import LineSymbol = require("esri/symbols/LineSymbol");
 import FillSymbol = require("esri/symbols/FillSymbol");
 import TextSymbol = require("esri/symbols/TextSymbol");
+import { GraphicsLayerOptions } from "esri";
 
 /**
  * @typedef {Object} SymbolOptionsOptions
@@ -95,10 +95,9 @@ export class SymbolOptions {
 /**
  * Creates a DrawUI and esri/toolbars/draw and then connects them.
  */
-const DrawUIHelper = declare(undefined, [Evented], {
-  layer: null,
-  draw: null,
-  symbolOptions: null,
+export default class DrawUIHelper extends Evented {
+  layer: GraphicsLayer;
+  draw: Draw | null;
   /**
    *
    * @param {esri/Map} map
@@ -108,12 +107,12 @@ const DrawUIHelper = declare(undefined, [Evented], {
    * @constructs
    */
   constructor(
-    this: any,
     map: EsriMap,
     drawUIElement: HTMLElement,
-    symbols: SymbolOptions,
-    graphicsLayerOptions: any
+    public symbols: SymbolOptions,
+    graphicsLayerOptions?: GraphicsLayerOptions
   ) {
+    super();
     const self = this;
 
     /**
@@ -235,6 +234,4 @@ const DrawUIHelper = declare(undefined, [Evented], {
       buttons[i].addEventListener("click", handleButtonClick);
     }
   }
-});
-
-export default DrawUIHelper;
+}

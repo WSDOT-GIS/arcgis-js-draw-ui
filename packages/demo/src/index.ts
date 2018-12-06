@@ -83,7 +83,7 @@ map.on("load", function() {
 
 const helper = new DrawUIHelper(
   map,
-  document.getElementById("drawUI"),
+  document.getElementById("drawUI")!,
   symbolOptions
 );
 helper.on("draw-activate", function() {
