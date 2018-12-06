@@ -2,10 +2,12 @@
     "defaultSeverity": "warn",
     "extends": [
         "tslint:recommended",
-        "tslint-config-prettier"
+        "tslint-config-prettier",
+        "tslint-plugin-prettier"
     ],
     "jsRules": {},
     "rules": {
+        "prettier": true,
         "ordered-imports": false,
         "object-literal-sort-keys": false,
         "one-variable-per-declaration": false,

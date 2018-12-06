@@ -84,7 +84,9 @@ export class SymbolOptions {
     if (geometry) {
       symbol = /\w*point/i.test(geometry.type)
         ? this.point
-        : /\w*line/i.test(geometry.type) ? this.line : this.polygon;
+        : /\w*line/i.test(geometry.type)
+        ? this.line
+        : this.polygon;
     }
     return symbol;
   }

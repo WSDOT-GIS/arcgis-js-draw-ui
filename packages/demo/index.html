@@ -3,7 +3,7 @@
 <head>
     <title>Map</title>
     <link rel="shortcut icon" href="http://www.wsdot.wa.gov/favicon.ico" />
-    <link rel="stylesheet" href="https://js.arcgis.com/3.23/esri/css/esri.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.27/esri/css/esri.css">
     <link href="index.css" rel="stylesheet" />
 </head>
 <body>
@@ -18,16 +18,15 @@
                 async: true,
                 packages: [
                     {
-                        name: "ArcGisDrawUI",
-                        location: root + "/../dist",
-                        main: "ArcGisDrawUI"
+                        name: "app",
+                        location: root + "/dist"
                     }
                 ]
             };
             self.dojoConfig = dojoConfig;
         }(this, location.pathname.replace(/\/[^\/]*$/, "")));
     </script>
-    <script src="https://js.arcgis.com/3.23/init.js" integrity="sha384-QUGOO+2tHNKvwiXmNxaAzPzil0WHtRgz63LF0xFQ7yhF9HK2lFTjFWhwWukyVZzA" crossorigin="anonymous"></script>
-    <script src="index.js"></script>
+    <script src="https://js.arcgis.com/3.27/init.js"></script>
+    <script>require(["app"])</script>
 </body>
 </html>

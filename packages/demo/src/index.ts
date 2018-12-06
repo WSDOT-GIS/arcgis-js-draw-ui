@@ -1,4 +1,5 @@
 import EsriMap from "esri/map";
+import Graphic from "esri/graphic";
 import InfoTemplate from "esri/InfoTemplate";
 import ArcGISDynamicMapServiceLayer from "esri/layers/ArcGISDynamicMapServiceLayer";
 import SimpleMarkerSymbol from "esri/symbols/SimpleMarkerSymbol";
@@ -14,7 +15,7 @@ import { SymbolOptions, DrawUIHelper } from "@wsdot/arcgis-js-draw-ui";
  * @param {esri/Graphic} graphic
  * @returns {HTMLDocumentFragment}
  */
-function createInfoWindowContent(graphic) {
+function createInfoWindowContent(graphic: Graphic) {
   const deleteFeature = function() {
     map.infoWindow.hide();
     console.log(graphic);
@@ -88,7 +89,7 @@ const helper = new DrawUIHelper(
 helper.on("draw-activate", function() {
   console.log("draw-activate");
 });
-helper.on("draw-complete", function(e) {
+helper.on("draw-complete", function(e: any) {
   console.log("draw-complete", e);
 });
 
