@@ -1,6 +1,9 @@
 {
-	"private": true,
+  "private": true,
+  "scripts": {
+    "prepare": "lerna bootstrap --hoist"
+  },
 	"devDependencies": {
-		"lerna": "^2.9.0"
+		"lerna": "^3.5.1"
 	}
 }

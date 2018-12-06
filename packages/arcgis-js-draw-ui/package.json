@@ -1,15 +1,15 @@
 {
-  "name": "arcgis-js-draw-ui",
+  "name": "@wsdot/arcgis-js-draw-ui",
   "version": "1.2.0",
   "description": "UI for ArcGIS API for JavaScript Draw toolbar",
-  "main": "dist/ArcGisDrawUI.js",
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
   "files": [
     "arcgis-draw-ui.css",
     "dist/*"
   ],
   "scripts": {
-    "prepare": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepare": "tsc"
   },
   "repository": {
     "type": "git",
@@ -22,15 +22,12 @@
   },
   "homepage": "https://github.com/WSDOT-GIS/arcgis-js-draw-ui#readme",
   "devDependencies": {
-    "@types/arcgis-js-api": "^3.23.0",
-    "@types/dojo": "^1.9.40",
-    "prettier": "^1.11.1",
-    "tslint": "^5.9.1",
-    "typescript": "^2.7.2"
-  },
-  "dependencies": {
-    "@types/arcgis-js-api": "3",
-    "tslint-config-prettier": "^1.10.0",
-    "tslint-config-standard": "^7.0.0"
+    "@types/arcgis-js-api": "^3.26.0",
+    "@types/dojo": "^1.9.41",
+    "prettier": "^1.15.3",
+    "tslint": "^5.11.0",
+    "typescript": "^3.2.1",
+    "tslint-config-prettier": "^1.17.0",
+    "tslint-plugin-prettier": "^2.0.1"
   }
 }

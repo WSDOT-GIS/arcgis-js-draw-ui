@@ -235,5 +235,4 @@ const DrawUIHelper = declare(undefined, [Evented], {
   }
 });
 
-// export default DrawUIHelper;
-// export { SymbolOptions };
+export default DrawUIHelper;
