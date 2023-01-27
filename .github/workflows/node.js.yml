@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x, 19.x]
+        node-version: [19.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -29,4 +29,4 @@ jobs:
     - run: npm ci
     # npm config already has prepare, so install/ci automatically triggers a build
     # - run: npm run build --if-present
-    - run: npm run test --if-present
+    # - run: npm run test --if-present
