@@ -1,7 +1,9 @@
+THIS PACKAGE PROJECT IS NO LONGER BEING MAINTAINED.
+
 ArcGIS JavaScript Draw UI
 =========================
 
-User interface for ArcGIS API for JavaScript's [Draw] toolbar.
+User interface for ArcGIS API for JavaScript's Draw toolbar.
 
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)][Lerna]
 [![npm](https://img.shields.io/npm/v/@wsdot/arcgis-js-draw-ui.svg?style=flat-square)][package]
